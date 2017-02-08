@@ -176,7 +176,7 @@ public class RLBrowser {
 			    }
 			    
 			} catch (Exception E){
-				System.out.println(E);
+				System.out.println("Data Unavailable for user: " + username);
 			}
 			
 		}

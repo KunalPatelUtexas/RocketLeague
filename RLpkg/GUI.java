@@ -7,6 +7,7 @@ package RLpkg;
 import javax.swing.AbstractButton;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,17 +27,18 @@ public class GUI extends JFrame{
 	
 	//Class Declarations
 	JTextField text_input;
-	JButton PS4, Xbox, PC;
+	JButton PS4, Xbox, PC, compare;
 	StringBuilder selection;
 	JLabel Instr;
 	Deque<User> Users = new LinkedList<User>();
-	
+	int checkboxes = 0;
+	Container container = getContentPane();
+    GridBagConstraints gBC = new GridBagConstraints();
+
 	//Constructor
 	public GUI() {
 		super("Rocket League Tracker");
-		Container container = getContentPane();
 		container.setLayout(new GridBagLayout());
-        GridBagConstraints gBC = new GridBagConstraints();
         gBC.fill = GridBagConstraints.VERTICAL;
         
 		
@@ -67,6 +69,13 @@ public class GUI extends JFrame{
         gBC.gridy = 3;
         PC.addActionListener(new ButtonHandler());
         container.add(PC, gBC);
+        
+        compare = new JButton("Compare");
+        gBC.gridx = 1;
+        gBC.gridy = 4;
+        compare.addActionListener(new ButtonHandler());
+        container.add(compare, gBC);
+                
 
 		setSize(500, 200);
 		setVisible(true);
