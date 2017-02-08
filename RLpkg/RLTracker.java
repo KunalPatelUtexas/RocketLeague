@@ -13,20 +13,22 @@ import java.util.concurrent.*;
 
 public class RLTracker {
 	
-	
 	 public static void main(String[] args) {
 
-	        	GUI RL_GUI = new GUI();
-	        	String username = new String();
-	        	String platform = new String();
+    	GUI RL_GUI = new GUI();
+    	while(RL_GUI.Users.size() <= 10){
+			while(!RL_GUI.Users.isEmpty()){
+	    			User U = RL_GUI.Users.remove();
+	    			RLBrowser RL = new RLBrowser(U);
+	    			RL.run();
+	    	}
 
-        		while(!RL_GUI.Users.isEmpty()){
-	        			User U = RL_GUI.Users.remove();
-	        			System.out.println(U.getUser());
-	        			RLBrowser T = new RLBrowser(U);
-	        			T.run();
-	        	}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    	}
 	 }
-	        
-   
+	 
 }

@@ -5,7 +5,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
-public class RLBrowser implements Runnable {
+public class RLBrowser {
 
 	String username;
 	String platform;
@@ -25,7 +25,6 @@ public class RLBrowser implements Runnable {
 		platform = new String(U.getPlatform());
 	}
 	
-	@Override
 	public void run() {
 		
 		try {
@@ -65,7 +64,6 @@ public class RLBrowser implements Runnable {
 			    
 			    ArrayList<String> stats = new ArrayList<String>();
 			
-			    
 			    
 			    int index = -1;
 			    for(int i = 0; i < lines.size(); i++){
@@ -182,8 +180,5 @@ public class RLBrowser implements Runnable {
 			}
 			
 		}
-	
-	
-
 
 }
